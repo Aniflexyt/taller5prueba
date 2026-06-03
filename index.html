@@ -19,18 +19,12 @@
         }
         .tech-card {
             background: rgba(22, 27, 34, 0.8);
-            backdrop-filter: blur(10px);
             border: 1px solid #30363d;
             border-radius: 15px;
             padding: 40px;
             box-shadow: 0 0 20px rgba(88, 166, 255, 0.1);
             width: 100%;
             max-width: 500px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .tech-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 30px rgba(88, 166, 255, 0.3);
         }
         .form-control {
             background-color: #0d1117;
@@ -44,7 +38,6 @@
             box-shadow: 0 0 15px rgba(88, 166, 255, 0.4);
             color: #fff;
         }
-        .form-label { color: #8b949e; font-weight: 500; letter-spacing: 1px; }
         .btn-neon {
             background-color: transparent;
             color: #58a6ff;
@@ -52,53 +45,39 @@
             transition: all 0.3s;
             text-transform: uppercase;
             letter-spacing: 1px;
+            width: 100%;
+            margin-bottom: 15px;
         }
         .btn-neon:hover {
             background-color: #58a6ff;
             color: #0d1117;
             box-shadow: 0 0 20px #58a6ff;
         }
-        .btn-ver {
-            background-color: transparent;
-            color: #2ea043;
-            border: 2px solid #2ea043;
-            transition: all 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .btn-ver:hover {
-            background-color: #2ea043;
-            color: #0d1117;
-            box-shadow: 0 0 20px #2ea043;
-        }
-        .glow-text {
-            color: #58a6ff;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 0 0 10px rgba(88, 166, 255, 0.5);
-        }
     </style>
 </head>
 <body>
     <div class="tech-card">
-        <h2 class="text-center mb-4 glow-text">Portal de Ingreso</h2>
+        <h3 class="text-center mb-4" style="color: #58a6ff; text-shadow: 0 0 10px rgba(88,166,255,0.5);">PORTAL DE INGRESO</h3>
         <form action="controlador/logica.php" method="post">
             <div class="mb-4">
-                <label class="form-label">Nombre del Operario:</label>
-                <input type="text" name="nom" required class="form-control" autocomplete="off" placeholder="Ej: Johan Cardenas">
+                <label class="form-label text-secondary">Nombre del Operario:</label>
+                <input type="text" name="nom" required class="form-control" autocomplete="off">
             </div>
             <div class="mb-4">
-                <label class="form-label">Frecuencia de Contacto (Tel):</label>
-                <input type="number" name="tel" required class="form-control" autocomplete="off" placeholder="Ej: 3001234567">
+                <label class="form-label text-secondary">Frecuencia (Tel):</label>
+                <input type="number" name="tel" required class="form-control" autocomplete="off">
             </div>
             <div class="mb-5">
-                <label class="form-label">Detalles del Reporte:</label>
-                <textarea name="det" required class="form-control" rows="3" placeholder="Ingresa los datos aquí..."></textarea>
+                <label class="form-label text-secondary">Detalles:</label>
+                <textarea name="det" required class="form-control" rows="3"></textarea>
             </div>
-            <div class="d-grid gap-3">
-                <button type="submit" class="btn btn-neon py-2 fw-bold">Transmitir Datos</button>
-                <a href="controlador/logica.php" class="btn btn-ver py-2 fw-bold">Ver Registros del Sistema</a>
-            </div>
+            <button type="submit" class="btn btn-neon py-2 fw-bold">Transmitir Datos</button>
+        </form>
+        <form action="controlador/logica.php" method="post">
+            <input type="hidden" name="nom" value="--">
+            <input type="hidden" name="tel" value="0">
+            <input type="hidden" name="det" value="Consulta de tabla">
+            <button type="submit" class="btn btn-neon py-2 fw-bold" style="color: #2ea043; border-color: #2ea043;">Ver Registros del Sistema</button>
         </form>
     </div>
 </body>
