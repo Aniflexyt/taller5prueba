@@ -1,27 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form de sugerencias</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <title>Terminal de Datos | Sistema</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-image: radial-gradient(circle at center, #161b22 0%, #0d1117 100%);
+        }
+        .tech-card {
+            background: rgba(22, 27, 34, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid #30363d;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(88, 166, 255, 0.1);
+            width: 100%;
+            max-width: 500px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(88, 166, 255, 0.3);
+        }
+        .form-control {
+            background-color: #0d1117;
+            border: 1px solid #30363d;
+            color: #58a6ff;
+            padding: 12px;
+        }
+        .form-control:focus {
+            background-color: #0d1117;
+            border-color: #58a6ff;
+            box-shadow: 0 0 15px rgba(88, 166, 255, 0.4);
+            color: #fff;
+        }
+        .form-label { color: #8b949e; font-weight: 500; letter-spacing: 1px; }
+        .btn-neon {
+            background-color: transparent;
+            color: #58a6ff;
+            border: 2px solid #58a6ff;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .btn-neon:hover {
+            background-color: #58a6ff;
+            color: #0d1117;
+            box-shadow: 0 0 20px #58a6ff;
+        }
+        .btn-ver {
+            background-color: transparent;
+            color: #2ea043;
+            border: 2px solid #2ea043;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .btn-ver:hover {
+            background-color: #2ea043;
+            color: #0d1117;
+            box-shadow: 0 0 20px #2ea043;
+        }
+        .glow-text {
+            color: #58a6ff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px rgba(88, 166, 255, 0.5);
+        }
+    </style>
 </head>
 <body>
-    <form action="controlador/logica.php" method="post">
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Nombre completo:</label>
-            <input type="text" name="nom" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Teléfono de contacto:</label>
-            <input type="number" name="tel" required min="3000000000" max="4000000000" class="form-control" id="exampleInputPassword1">
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Detalles de la sugerencia:</label>
-            <input type="text" name="det" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        </div>
-        <button type="submit" id="boton" class="btn btn-primary">Enviar</button>
-    </form>
+    <div class="tech-card">
+        <h2 class="text-center mb-4 glow-text">Portal de Ingreso</h2>
+        <form action="controlador/logica.php" method="post">
+            <div class="mb-4">
+                <label class="form-label">Nombre del Operario:</label>
+                <input type="text" name="nom" required class="form-control" autocomplete="off" placeholder="Ej: Johan Cardenas">
+            </div>
+            <div class="mb-4">
+                <label class="form-label">Frecuencia de Contacto (Tel):</label>
+                <input type="number" name="tel" required class="form-control" autocomplete="off" placeholder="Ej: 3001234567">
+            </div>
+            <div class="mb-5">
+                <label class="form-label">Detalles del Reporte:</label>
+                <textarea name="det" required class="form-control" rows="3" placeholder="Ingresa los datos aquí..."></textarea>
+            </div>
+            <div class="d-grid gap-3">
+                <button type="submit" class="btn btn-neon py-2 fw-bold">Transmitir Datos</button>
+                <a href="controlador/logica.php" class="btn btn-ver py-2 fw-bold">Ver Registros del Sistema</a>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
