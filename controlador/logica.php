@@ -133,58 +133,6 @@ tr:hover{
         </button>
     </div>
 
-<?php
-
-//var_dump($_POST);
-
-$conexion = new PDO(
-    'pgsql:host=dpg-d8g5vu28qa3s73asc3dg-a.oregon-postgres.render.com;dbname=bd_profe',
-    'bd_profe_user',
-    'biTM7L5wwdh8SyCZGqEbVreql9d55ZZT'
-);
-
-$registrar = $conexion->prepare(
-    "INSERT INTO form_sugerencias (nombre,telefono,detalles) VALUES (?, ?, ?)"
-);
-
-$registrar->execute([
-    $_POST["nom"],
-    $_POST["tel"],
-    $_POST["det"]
-]);
-
-echo "<div class='exito'>Registro exitoso</div>";
-
-$consulta = $conexion->prepare(
-    "SELECT * FROM form_sugerencias ORDER BY id"
-);
-
-$consulta->execute();
-
-$tabla = $consulta->fetchAll(PDO::FETCH_ASSOC);
-
-$conexion = null;
-
-echo "<table>
-<tr>
-<th>Codigo</th>
-<th>Nombre completo</th>
-<th>Contacto</th>
-<th>Detalles</th>
-</tr>";
-
-foreach($tabla as $fila){
-    echo "<tr>
-            <td>$fila[id]</td>
-            <td>$fila[nombre]</td>
-            <td>$fila[telefono]</td>
-            <td>$fila[detalles]</td>
-          </tr>";
-}
-
-echo "</table>";
-
-?>
 
 </div>
 
