@@ -26,6 +26,7 @@ echo "</table>";
 
 ?>
 
+
 <style>
     /* Fondo tecnológico */
     body {
